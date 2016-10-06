@@ -1,0 +1,12 @@
+apply plugin: 'eclipse-wtp'
+apply plugin: 'war'
+
+
+dependencies {
+	compile project(':Business-jar')
+    compile("org.springframework.boot:spring-boot-starter-security:${springBootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+
+}
+
+

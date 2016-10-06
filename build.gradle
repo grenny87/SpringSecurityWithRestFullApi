@@ -1,0 +1,78 @@
+buildscript {
+    ext {
+        springVersion = '4.2.5.RELEASE'
+        springBootVersion = '1.4.1.RELEASE'
+        springDataMirageVersion = '0.3.3.RELEASE'
+        
+    }
+    repositories {
+        mavenCentral()
+        maven { url 'http://repo.spring.io/plugins-release' }
+        maven { url 'http://www.mvnrepository.com' }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("io.spring.gradle:dependency-management-plugin:0.5.1.RELEASE")
+        classpath('org.springframework.build.gradle:propdeps-plugin:0.0.6')
+        classpath("org.springframework:springloaded:1.2.3.RELEASE")
+    }
+}
+
+apply plugin: 'spring-boot'
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'spring-boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'eclipse-wtp'
+
+
+    // make project build on java 8
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        maven { url "http://amateras.sourceforge.jp/mvn/" }
+        maven { url "http://maven.xet.jp/release/" }
+    }
+    
+    dependencies {
+        compile("org.springframework.boot:spring-boot-starter-aop:${springBootVersion}")
+        testCompile 'junit:junit:4.8.2'
+    }   
+   
+    task wrapper(type: Wrapper) {
+        gradleVersion = '2.3'
+    }
+    
+    version = '1.0'
+
+    jar {
+        manifest.attributes provider: 'Demo'
+    }
+    
+    configure([project(':Web-war'),project(':Business-jar')]) {
+        apply plugin: 'war'
+
+        configurations {
+            providedRuntime
+        }
+
+        dependencies {
+            
+            compile("org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}")
+            compile("org.projectlombok:lombok:1.16.8")
+            compile("jp.sf.amateras:mirage:1.2.3")
+            compile("org.springframework.data:spring-data-mirage:${springDataMirageVersion}")
+            compile('commons-beanutils:commons-beanutils:1.9.2')
+            compile("org.eclipse.persistence:javax.persistence:2.1.1")
+            providedRuntime("org.springframework.boot:spring-boot-starter-tomcat:${springBootVersion}")
+            testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+        }
+        
+
+    }
+    
+}
