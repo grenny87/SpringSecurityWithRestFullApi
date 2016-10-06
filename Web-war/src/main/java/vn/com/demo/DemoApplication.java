@@ -20,7 +20,6 @@ import org.springframework.web.WebApplicationInitializer;
  * @author TrungLHB
  */
 @ComponentScan({ "vn.com.demo" })
-//@ImportResource({ "classpath:mirageContext.xml", "classpath:selectSystemDateTime.xml" })
 @SpringBootApplication
 @EnableCaching
 public class DemoApplication extends SpringBootServletInitializer
