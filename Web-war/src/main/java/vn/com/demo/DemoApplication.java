@@ -15,9 +15,9 @@ import org.springframework.web.WebApplicationInitializer;
  * RentalReportApplication class container<br>
  * ------------------------<br>
  * History:<br>
- * 2016-06-30 - TrungLHB - Initial<br>
+ * 2016-06-30 - Test - Initial<br>
  *
- * @author TrungLHB
+ * @author Test
  */
 @ComponentScan({ "vn.com.demo" })
 @SpringBootApplication
