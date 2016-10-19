@@ -16,7 +16,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}") 
     compile("org.springframework.boot:spring-boot-starter-mail:${springBootVersion}")
     compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
-    compile("org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}")
+   // compile("org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}")
     compile("org.springframework:spring-context-support:${springVersion}")
     compile("org.thymeleaf.extras:thymeleaf-extras-springsecurity4:2.1.2.RELEASE")
     compile("org.apache.commons:commons-csv:1.2")

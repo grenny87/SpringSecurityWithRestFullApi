@@ -24,7 +24,10 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}") 
     compile("org.springframework.boot:spring-boot-starter-mail:${springBootVersion}")
     compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
-    compile("org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}")
+    compile("jp.sf.amateras:mirage:1.2.3")
+    compile group: 'org.postgresql', name: 'postgresql', version: '9.4-1206-jdbc42'
+    compile("org.springframework.data:spring-data-mirage:${springDataMirageVersion}")
+    // compile("org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}")
     compile("org.springframework:spring-context-support:${springVersion}")
      compile("org.apache.commons:commons-csv:1.2")
     compile("org.apache.commons:commons-lang3:3.4")
